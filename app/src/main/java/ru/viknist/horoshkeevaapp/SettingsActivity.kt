@@ -1,12 +1,11 @@
 package ru.viknist.horoshkeevaapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.InputType
 import android.text.method.KeyListener
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.RelativeLayout
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +28,12 @@ class SettingsActivity : AppCompatActivity() {
         passwordEditText.tag = passwordEditText.keyListener
         passwordEditText.keyListener = null
 
+        val backLayout = findViewById<RelativeLayout>(R.id.backLayout)
+
+        backLayout.setOnClickListener {
+            onBackPressed()
+        }
+
         emailButtonImageView.setOnClickListener {
             if (emailEditText.keyListener != null) {
                 emailEditText.keyListener = null
@@ -40,7 +45,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         nameButtonImageView.setOnClickListener {
-            if (nameEditText.keyListener != null){
+            if (nameEditText.keyListener != null) {
                 nameEditText.keyListener = null
                 nameButtonImageView.setImageResource(R.drawable.edit)
             } else {
@@ -49,8 +54,8 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
 
-        passwordButtonImageView.setOnClickListener{
-            if (passwordEditText.keyListener != null){
+        passwordButtonImageView.setOnClickListener {
+            if (passwordEditText.keyListener != null) {
                 passwordEditText.keyListener = null
                 passwordButtonImageView.setImageResource(R.drawable.edit)
             } else {

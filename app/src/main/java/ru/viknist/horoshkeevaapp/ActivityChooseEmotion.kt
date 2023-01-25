@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.core.view.setPadding
-import kotlin.math.E
 
 class ActivityChooseEmotion : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,67 +17,21 @@ class ActivityChooseEmotion : AppCompatActivity() {
         val disappointmentImageView = findViewById<ImageView>(R.id.disappointmentImageView)
         val angryImageView = findViewById<ImageView>(R.id.angryImageView)
         val fearImageView = findViewById<ImageView>(R.id.fearImageView)
-        var selectedEmotion: Emotion? = null
 
         happyImageView.setOnClickListener{
-            if (selectedEmotion == Emotion.HAPPY)
                 openEmotionActivity(Emotion.HAPPY)
-            else {
-                selectedEmotion = Emotion.HAPPY
-                happyImageView.setPadding(1,1,1,1)
-                sadImageView.setPadding(0,0,0,0)
-                disappointmentImageView.setPadding(0,0,0,0)
-                angryImageView.setPadding(0,0,0,0)
-                fearImageView.setPadding(0,0,0,0)
-            }
         }
         sadImageView.setOnClickListener {
-            if (selectedEmotion == Emotion.SAD)
                 openEmotionActivity(Emotion.SAD)
-            else{
-                selectedEmotion = Emotion.SAD
-                happyImageView.setPadding(0,0,0,0)
-                sadImageView.setPadding(1,1,1,1)
-                disappointmentImageView.setPadding(0,0,0,0)
-                angryImageView.setPadding(0,0,0,0)
-                fearImageView.setPadding(0,0,0,0)
-            }
         }
         disappointmentImageView.setOnClickListener {
-            if (selectedEmotion == Emotion.DISAPPOINTED)
                 openEmotionActivity(Emotion.DISAPPOINTED)
-            else{
-                selectedEmotion = Emotion.DISAPPOINTED
-                happyImageView.setPadding(0,0,0,0)
-                sadImageView.setPadding(0,0,0,0)
-                disappointmentImageView.setPadding(1,1,1,1)
-                angryImageView.setPadding(0,0,0,0)
-                fearImageView.setPadding(0,0,0,0)
-            }
         }
         angryImageView.setOnClickListener {
-            if (selectedEmotion == Emotion.ANGRY)
                 openEmotionActivity(Emotion.ANGRY)
-            else{
-                selectedEmotion = Emotion.ANGRY
-                happyImageView.setPadding(0,0,0,0)
-                sadImageView.setPadding(0,0,0,0)
-                disappointmentImageView.setPadding(0,0,0,0)
-                angryImageView.setPadding(1,1,1,1)
-                fearImageView.setPadding(0,0,0,0)
-            }
         }
         fearImageView.setOnClickListener {
-            if (selectedEmotion == Emotion.FEAR)
                 openEmotionActivity(Emotion.FEAR)
-            else{
-                selectedEmotion = Emotion.FEAR
-                happyImageView.setPadding(0,0,0,0)
-                sadImageView.setPadding(0,0,0,0)
-                disappointmentImageView.setPadding(0,0,0,0)
-                angryImageView.setPadding(0,0,0,0)
-                fearImageView.setPadding(1,1,1,1)
-            }
         }
     }
 
@@ -91,6 +43,7 @@ class ActivityChooseEmotion : AppCompatActivity() {
             Emotion.SAD -> Intent(this, SadActivity::class.java)
             Emotion.DISAPPOINTED -> Intent(this, DisappointmentActivity::class.java)
         }
+        intent.putExtra("userInfo", getIntent().getSerializableExtra("userInfo") as TokenDataClass)
         startActivity(intent)
     }
 }

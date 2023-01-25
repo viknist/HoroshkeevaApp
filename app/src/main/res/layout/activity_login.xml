@@ -105,13 +105,14 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/forgotPasswordButtonTextView"
+            android:id="@+id/incorrectTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Забыли пароль?"
-            android:textColor="#AF644B"
+            android:text="Неправильный логин или пароль"
+            android:textColor="#EB9191"
             android:textSize="14sp"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/passwordLoginViewText"
             app:layout_constraintTop_toBottomOf="@+id/editTextPasswordLogin" />
 
@@ -131,7 +132,7 @@
             app:layout_constraintBottom_toTopOf="@+id/registerButtonTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/forgotPasswordButtonTextView"
+            app:layout_constraintTop_toBottomOf="@+id/incorrectTextView"
             app:layout_constraintVertical_bias="1.0" />
 
         <ImageView

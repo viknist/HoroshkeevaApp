@@ -22,7 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forgotPasswordButtonTextView"
+        app:layout_constraintTop_toBottomOf="@+id/incorrectTextView"
         app:layout_constraintVertical_bias="0.874" />
 
     <TextView
@@ -167,4 +167,14 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/emailRegisterEditText"
         app:layout_constraintStart_toStartOf="@+id/emailRegisterEditText" />
+
+    <TextView
+        android:id="@+id/errorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Неправильные данные для регистрации"
+        android:textColor="#EB9191"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/editTextRepeatPasswordRegister"
+        app:layout_constraintTop_toBottomOf="@+id/editTextRepeatPasswordRegister" />
 </androidx.constraintlayout.widget.ConstraintLayout>

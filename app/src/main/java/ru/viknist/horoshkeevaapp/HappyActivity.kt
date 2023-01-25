@@ -20,8 +20,9 @@ class HappyActivity : AppCompatActivity() {
 
     }
 
-    private fun openAppActivity(){
+    private fun openAppActivity() {
         val intent = Intent(this, AppActivity::class.java)
+        intent.putExtra("userInfo", getIntent().getSerializableExtra("userInfo") as TokenDataClass)
         startActivity(intent)
     }
 }
