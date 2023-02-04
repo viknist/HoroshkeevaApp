@@ -1,8 +1,7 @@
-package ru.viknist.horoshkeevaapp
+package ru.viknist.emotionsrest.auth
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Patterns
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -10,6 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
+import ru.viknist.emotionsrest.ActivityChooseEmotion
+import ru.viknist.emotionsrest.models.RegistrationModel
+import ru.viknist.emotionsrest.models.UserToken
+import ru.viknist.emotionsrest.network.RestApi
+import ru.viknist.emotionsrest.network.ServiceBuilder
+import ru.viknist.horoshkeevaapp.R
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +31,7 @@ class RegisterActivity : AppCompatActivity() {
         val errorTextView = findViewById<TextView>(R.id.errorTextView)
 
         registerButtonText.setOnClickListener {
-            val registerInfo = RegisterDataClass(
+            val registerInfo = RegistrationModel(
                 emailEditText.text.toString(),
                 emailEditText.text.toString(),
                 passwordEditText.text.toString(),
@@ -55,7 +60,7 @@ class RegisterActivity : AppCompatActivity() {
 
     }
 
-    private fun openChooseEmotionActivity(userInfo: TokenDataClass) {
+    private fun openChooseEmotionActivity(userInfo: UserToken) {
         val intent = Intent(this, ActivityChooseEmotion::class.java)
         intent.putExtra("userInfo", userInfo)
         startActivity(intent)

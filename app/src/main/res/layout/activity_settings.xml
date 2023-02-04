@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f6f0ee"
-    tools:context=".SettingsActivity">
+    tools:context=".auth.SettingsActivity">
 
     <ImageView
         android:id="@+id/passwordEditButtonImageView"
@@ -115,7 +115,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="Пароль"
+        android:text="Новый пароль"
         android:textColor="#212121"
         app:layout_constraintBottom_toTopOf="@+id/passwordSettingsEditText"
         app:layout_constraintStart_toStartOf="@+id/passwordSettingsEditText" />
@@ -140,6 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="14dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/passwordSettingsEditText"
         app:layout_constraintEnd_toEndOf="@+id/passwordSettingsEditText"
         app:layout_constraintTop_toTopOf="@+id/passwordSettingsEditText"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F79E90"
-    tools:context=".AngryActivity">
+    tools:context=".activity.AngryActivity">
 
     <TextView
         android:id="@+id/textView6"

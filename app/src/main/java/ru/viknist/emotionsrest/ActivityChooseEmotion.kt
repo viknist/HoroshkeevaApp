@@ -1,9 +1,12 @@
-package ru.viknist.horoshkeevaapp
+package ru.viknist.emotionsrest
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import ru.viknist.emotionsrest.activity.*
+import ru.viknist.emotionsrest.models.UserToken
+import ru.viknist.horoshkeevaapp.R
 
 class ActivityChooseEmotion : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +46,7 @@ class ActivityChooseEmotion : AppCompatActivity() {
             Emotion.SAD -> Intent(this, SadActivity::class.java)
             Emotion.DISAPPOINTED -> Intent(this, DisappointmentActivity::class.java)
         }
-        intent.putExtra("userInfo", getIntent().getSerializableExtra("userInfo") as TokenDataClass)
+        intent.putExtra("userInfo", getIntent().getSerializableExtra("userInfo") as UserToken)
         startActivity(intent)
     }
 }

@@ -1,4 +1,4 @@
-package ru.viknist.horoshkeevaapp
+package ru.viknist.emotionsrest
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package ru.viknist.horoshkeevaapp
+package ru.viknist.emotionsrest.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
+import ru.viknist.emotionsrest.ActivityChooseEmotion
+import ru.viknist.emotionsrest.models.UserToken
+import ru.viknist.emotionsrest.models.UserData
+import ru.viknist.emotionsrest.network.RestApi
+import ru.viknist.emotionsrest.network.ServiceBuilder
+import ru.viknist.emotionsrest.utils.PasswordUtils
+import ru.viknist.horoshkeevaapp.R
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +40,11 @@ class LoginActivity : AppCompatActivity() {
 
         loginButtonText.setOnClickListener {
 
-            val userInfo = UserDataClass(idUser = null,
+            val userInfo = UserData(idUser = null,
                 username = loginEditText.text.toString(),
                 email = null,
-                password = passwordEditText.text.toString())
+                password = passwordEditText.text.toString(),
+                name = null)
 
             lifecycleScope.launch{
                 try {
@@ -52,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         showHideButton.setOnClickListener {
-            Utils.showHidePassword(passwordEditText)
+            PasswordUtils.showHidePassword(passwordEditText)
         }
     }
 
@@ -61,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun openChooseEmotionActivity(userInfo: TokenDataClass){
+    private fun openChooseEmotionActivity(userInfo: UserToken){
         val intent = Intent(this, ActivityChooseEmotion::class.java)
         intent.putExtra("userInfo", userInfo)
         startActivity(intent)
